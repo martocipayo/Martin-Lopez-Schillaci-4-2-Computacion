@@ -1,19 +1,11 @@
-// definición de pines y constantes
-const int pir_pin = 2;      // pin del sensor pir
-const int trig_pin = 3;     // pin trig del sensor ultrasónico
-const int echo_pin = 4;     // pin echo del sensor ultrasónico
-const int led_r_pin = 9;    // pin del led rojo
-const int led_g_pin = 10;   // pin del led verde
-const int led_b_pin = 11;   // pin del led azul
-const int buzzer_pin = 12;  // pin del buzzer
+
 
 // macros para mensajes acortados
 #define seguro "área segura"
 #define movimiento "movimiento detectado"
 #define alerta "proximidad detectada"
 
-// umbral de distancia en centímetros
-const int distance_threshold = 100;
+
 
 // configuración inicial
 void setup() {
