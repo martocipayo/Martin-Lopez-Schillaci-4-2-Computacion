@@ -1,17 +1,4 @@
-void setup() {
-  // definición de pines y constantes
-const int TMP35_PIN = A0; // pin del sensor de temperatura
-const int LDR_PIN = A1;   // pin del sensor de luz
-const int LED_R_PIN = 9;  // pin del led rojo
-const int LED_G_PIN = 10; // pin del led verde
-const int LED_B_PIN = 11; // pin del led azul
 
-// macros para mensajes acortados
-#define LUZ_MSG "el nivel de luz actual es: "
-#define TEMP_MSG " y la temperatura actual: "
-#define GRADOS " ºc"
-
-// configuración inicial
 void setup() {
   Serial.begin(9600); // iniciar comunicación serial a 9600 baudios
 
