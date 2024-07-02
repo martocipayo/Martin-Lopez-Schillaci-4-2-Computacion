@@ -25,15 +25,10 @@ void setup()
 void loop()
 {
  digitalWrite(trig, LOW);
-  
   delayMicroseconds(2);
-  
   digitalWrite(trig, HIGH);
-  
   delayMicroseconds(2);
-  
   digitalWrite(trig, LOW);
-  
   float tiempo = pulseIn( echo , HIGH );
   float distancia = tiempo / 58.2; 
   bool buttonState = digitalRead(2) == 255;
