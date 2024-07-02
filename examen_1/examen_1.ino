@@ -43,7 +43,7 @@ void loop()
     analogWrite(green, 255);
     analogWrite(blue, 0);
     analogWrite(red, 0);
-    Serial.print("Zona Segura");
+    Serial.print("zona segura");
   }
                         
  else if(distancia <= 100 && distancia >= 50){
@@ -61,7 +61,7 @@ void loop()
     analogWrite(green, 122);
     analogWrite(buzz, 255);
     delay(400);
-    Serial.print("zona media");
+    Serial.print("zona de medio riesgo");
 }
 
  	 else (distancia < 20);{
@@ -70,7 +70,7 @@ void loop()
   	analogWrite(green, 0);
   	analogWrite(buzz, 255);
      delay(100);
-     Serial.println("Zona Peligrosa");
+     Serial.println("Zona De  Peligro/atención!");
 }
 
   mensaje ("La distancia actual es", distancia , "m");
