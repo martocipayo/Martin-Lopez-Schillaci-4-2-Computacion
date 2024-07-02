@@ -38,75 +38,43 @@ void loop()
   float distancia = tiempo / 58.2; 
   bool buttonState = digitalRead(2) == 255;
   
-   if(digitalRead(botonPin) == LOW)
-   {
-  	boton = !boton;
-    delay(200);
-    cont+= 1;
-      
-     if(cont > 3)
-     {
-      	cont = 0
-     }
-    }
-  
-  if(cont == 1 && distancia > 200)
-  {
-   	analogWrite(pinVerde,255);
-    
-    analogWrite(pinRojo,0);
-    analogWrite(pinAzul,0);
-    Serial.print("El objeto se encuentra a : ");
-  	Serial.print ( distancia );
-  	Serial.print ( " cm" );
-    
-    Serial.print(" MODO 1");
-    
-  }else{
-    analogWrite(pinRojo,255);
-    
-    analogWrite(pinVerde,0);
-    analogWrite(pinAzul,0);
-    
-    Serial.println("ZONA INSEGURA");
+  if (distancia > 200 ){
+    analogWrite(buzz, 0);
+    analogWrite(green, 255);
+    analogWrite(blue, 0);
+    analogWrite(red, 0);
+    Serial.print("Zona Segura");
+  }
+                        
+ else if(distancia <= 100 && distancia >= 50){
+   
+    analogWrite(green, 255);
+     analogWrite(blue, 0);
+     analogWrite(red, 0);
+    analogWrite(buzz, 255);
+    delay(800);
   }
   
-  if(cont == 2  && distancia >= 50 && distancia <= 100)
-  {
-   analogWrite(pinVerde,255);
-    analogWrite(pinRojo,255);
-    Serial.print("El objeto se encuentra a : ");
-  	Serial.print ( distancia );
-  	Serial.print ( " cm" );
-  }else{
+  else if(distancia < 50 && distancia >= 20){
+  	analogWrite(red, 255);
+	analogWrite(blue, 0);
+    analogWrite(green, 122);
+    analogWrite(buzz, 255);
+    delay(400);
+    Serial.print("zona media");
+}
 
- analogWrite(pinRojo,255);
-    analogWrite(pinVerde,0);
-    analogWrite(pinAzul,0);
-    
-    Serial.println("ZONA INSEGURA");
-  }
-  
-  if( cont == 3 && distancia >= 50)
-  {
-   analogWrite(pinAzul,255);
-    analogWrite(pinRojo,0);
-    analogWrite(pinVerde,0);
-    
-    Serial.print("El objeto se encuentra a tanta distancia : ");
-  	Serial.print ( distancia );
-  	Serial.print ( " cm" );
-    
-    Serial.print(" ZONA SEGURA");
-  }else{
-    
-    analogWrite(pinRojo,255);
-    analogWrite(pinVerde,0);
-    analogWrite(pinAzul,0);
-    
-    Serial.println("ZONA INSEGURA");
-  }
+ 	 else (distancia < 20);{
+ 	analogWrite(red, 255);
+ 	analogWrite(blue, 0);
+  	analogWrite(green, 0);
+  	analogWrite(buzz, 255);
+     delay(100);
+     Serial.println("Zona Peligrosa");
+}
+
   mensaje ("La distancia actual es", distancia , "m");
+
       }
   
         
